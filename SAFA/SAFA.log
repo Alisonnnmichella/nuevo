@@ -1,0 +1,52 @@
+[INFO] 21:42:42:12 safa/(3411:3411): SAFA: corrupto
+[INFO] 21:42:42:12 safa/(3411:3411): Bindeado!
+[INFO] 22:03:33:280 safa/(3976:3976): SAFA: corrupto
+[INFO] 22:03:33:299 safa/(3976:3976): Bindeado!
+[INFO] 17:26:11:187 safa/(3353:3353): SAFA: corrupto
+[INFO] 17:26:11:208 safa/(3353:3353): Bindeado!
+[INFO] 18:26:36:556 safa/(4906:4906): SAFA: corrupto
+[INFO] 18:26:36:587 safa/(4906:4906): Bindeado!
+[INFO] 21:09:45:611 safa/(7567:7567): SAFA: corrupto
+[INFO] 21:09:45:631 safa/(7567:7567): Bindeado!
+[INFO] 21:10:03:436 safa/(7567:7567): Se acepto la conexion 1
+[INFO] 21:10:03:516 safa/(7567:7567): mensaje recibido DAM
+[INFO] 21:11:20:433 safa/(7567:7567): Se acepto la conexion 2
+[INFO] 21:11:20:577 safa/(7567:7567): mensaje recibido CPU
+[INFO] 21:11:20:577 safa/(7567:7567): ambas conexiones se realizaron
+[INFO] 21:11:20:661 safa/(7567:7567): la conexion 1 es diego
+[INFO] 21:11:20:661 safa/(7567:7567): SAFA: operativo
+[INFO] 21:53:03:583 safa/(8627:8627): SAFA: corrupto
+[INFO] 21:53:03:607 safa/(8627:8627): Bindeado!
+[INFO] 21:53:16:76 safa/(8627:8627): Se acepto la conexion 1
+[INFO] 21:53:16:630 safa/(8627:8627): mensaje recibido DAM
+[INFO] 21:53:26:259 safa/(8627:8627): Se acepto la conexion 2
+[INFO] 21:53:26:366 safa/(8627:8627): mensaje recibido CPU
+[INFO] 21:53:26:366 safa/(8627:8627): ambas conexiones se realizaron
+[INFO] 21:53:26:366 safa/(8627:8627): la conexion 1 es diego
+[INFO] 21:53:26:366 safa/(8627:8627): SAFA: operativo
+[INFO] 22:09:52:566 safa/(9247:9247): SAFA: corrupto
+[INFO] 22:09:52:580 safa/(9247:9247): Bindeado!
+[INFO] 22:10:27:496 safa/(9247:9247): Se acepto la conexion 1
+[INFO] 22:10:27:790 safa/(9247:9247): mensaje recibido DAM
+[INFO] 22:10:31:279 safa/(9247:9247): Se acepto la conexion 2
+[INFO] 22:10:31:506 safa/(9247:9247): mensaje recibido CPU
+[INFO] 22:10:31:506 safa/(9247:9247): ambas conexiones se realizaron
+[INFO] 22:10:31:506 safa/(9247:9247): la conexion 1 es diego
+[INFO] 22:10:31:506 safa/(9247:9247): SAFA: operativo
+[INFO] 22:12:01:608 safa/(9403:9403): SAFA: corrupto
+[INFO] 22:12:01:632 safa/(9403:9403): Bindeado!
+[INFO] 22:12:13:374 safa/(9403:9403): Se acepto la conexion 1
+[INFO] 22:12:13:501 safa/(9403:9403): mensaje recibido CPU
+[INFO] 22:12:19:535 safa/(9403:9403): Se acepto la conexion 2
+[INFO] 22:12:19:555 safa/(9403:9403): mensaje recibido DAM
+[INFO] 22:12:19:555 safa/(9403:9403): ambas conexiones se realizaron
+[INFO] 22:12:19:555 safa/(9403:9403): SAFA: operativo
+[INFO] 22:34:48:917 safa/(9901:9901): SAFA: corrupto
+[INFO] 22:34:48:940 safa/(9901:9901): Bindeado!
+[INFO] 22:34:59:612 safa/(9901:9901): Se acepto la conexion 1
+[INFO] 22:34:59:631 safa/(9901:9901): mensaje recibido DAM
+[INFO] 22:35:11:292 safa/(9901:9901): Se acepto la conexion 2
+[INFO] 22:35:11:752 safa/(9901:9901): mensaje recibido CPU
+[INFO] 22:35:11:753 safa/(9901:9901): ambas conexiones se realizaron
+[INFO] 22:35:11:753 safa/(9901:9901): la conexion 1 es diego
+[INFO] 22:35:11:753 safa/(9901:9901): SAFA: operativo
