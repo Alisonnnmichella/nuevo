@@ -21,13 +21,14 @@ typedef struct{
 } header;
 void recepcionMensaje(int receiver,t_log*logger,char*mensaje);
 void enviarMensaje(int socket_cliente,t_log *logger,char *mensaje);
-void recibirMensaje(int socket_cliente,t_log *logger);
+void recibirMensaje(int socket_cliente,t_log *logger,char *mensaje);
 void recibirHeaderYPayload(int socket_cliente,t_log *logger,char*bufferPayload);
 void enviarHeaderYPayload(int socket_cliente,t_log*logger,char*mensaje,int protocolo);
 void recibirHeader(int socket_cliente,t_log *logger);
 int connect_to_server(char * ip, char * port,t_log *logger);
 int crear_server(char * ip, char * port,t_log *logger);
 int esperandoUnaConexion(int socket_servidor,t_log *logger,int numConexion);
-
+void recibir(int socket_cliente,t_log *logger,void *dato ,size_t tamTipo);
+void enviar(int socket_cliente,void *dato,t_log *logger,size_t tamdetipo);
 
 #endif /* GESTION_SOCKETS_GS_H_ */

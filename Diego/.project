@@ -3,8 +3,8 @@
 	<name>DAM</name>
 	<comment></comment>
 	<projects>
+		<project>ourShare</project>
 		<project>commons</project>
-		<project>ourShared</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

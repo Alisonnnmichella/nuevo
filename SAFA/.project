@@ -3,7 +3,8 @@
 	<name>Safa</name>
 	<comment></comment>
 	<projects>
-		<project>ourShared</project>
+		<project>commons</project>
+		<project>ourShare</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

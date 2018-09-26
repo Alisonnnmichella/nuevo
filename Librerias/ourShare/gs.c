@@ -19,33 +19,51 @@ void recepcionMensaje(int receiver,t_log*logger,char*mensaje){
 }
 
 
+void enviar(int socket_cliente,void *dato,t_log *logger,size_t tamdetipo){
+	void* buf=malloc(sizeof(tamdetipo));
+	memcpy(buf,dato,sizeof(tamdetipo));
+	int r=send(socket_cliente,buf,sizeof(tamdetipo),0);
+	free(buf);
+	if(r<0){
+		log_error(logger,"No se pudo enviar");
+		close(socket_cliente);
+	}
+}
 
+void recibir(int socket_cliente,t_log *logger,void *dato ,size_t tamTipo){
+	int bytes_recibidos= recv(socket_cliente,dato,sizeof(tamTipo),0);
+	if(bytes_recibidos<0){
+		log_error(logger,"No se pudo recibir :c");
+		close(socket_cliente);
+		exit(1);
+		}
+}
 
 
 void enviarMensaje(int socket_cliente,t_log *logger,char *mensaje){
-	int tamanio_Mens= strlen(mensaje) +1;
+	int tamanio_Mens= strlen(mensaje)+1;
 	void *buffer=malloc(4+tamanio_Mens*sizeof(char));
 	memcpy(buffer,(void *)&tamanio_Mens,4);
 	memcpy(buffer+4,mensaje,tamanio_Mens*sizeof(char));
 	int r=send(socket_cliente,buffer,4+tamanio_Mens*sizeof(char),0);
 	if(r<0)
-		printf("error!");
+		log_error(logger,"No se pudo enviar el mensaje :c");
 	free(buffer);
 }
 
-void recibirMensaje(int socket_cliente,t_log *logger){
-	printf("Recibiendo...\n");
+void recibirMensaje(int socket_cliente,t_log *logger,char *mensaje){
 	size_t tamanioMens;
 	int bytes_recibidos= recv(socket_cliente,&tamanioMens,4,0);
 	if(bytes_recibidos<0){
-		perror("Fallo");
+
+		log_error(logger,"No se pudo recibir el mensaje :c");
 		exit(1);
 	}
-	char *mensaje= malloc(tamanioMens);
-	bytes_recibidos=recv(socket_cliente,mensaje,tamanioMens,MSG_WAITALL);
-	printf("\n%s\n",mensaje);
-	free(mensaje);
+	mensaje= malloc(tamanioMens);
+	bytes_recibidos=recv(socket_cliente,mensaje,tamanioMens,0);
+
 }
+
 void recibirHeaderYPayload(int socket_cliente,t_log *logger,char*bufferPayload){
 	printf("recibiendo header...\n"); //envio de header
 	header* mensaje=malloc(sizeof(header));
@@ -100,8 +118,8 @@ int esperandoUnaConexion(int socket_servidor,t_log *logger,int numConexion){
 	unsigned int sin_size=sizeof(struct sockaddr_in);
 	int cliente=accept(socket_servidor,&cliente_tam,&sin_size);
 	if(cliente<0){
-			log_info(logger, "ERROR No se pudo aceptar la conexion %d",numConexion);
-			exit(1);
+		log_info(logger, "ERROR No se pudo aceptar la conexion %d",numConexion);
+		exit(1);
 		}
 	log_info(logger, "Se acepto la conexion %d",numConexion);
 	return cliente;
@@ -114,8 +132,8 @@ int connect_to_server(char * ip, char * port,t_log *logger) {
   hints.ai_socktype = SOCK_STREAM;
 
   getaddrinfo(ip, port, &hints, &server_info);
-  int server_socket = socket(server_info->ai_family, server_info->ai_socktype, server_info->ai_protocol);
-  int res = connect(server_socket, server_info->ai_addr, server_info->ai_addrlen);
+  int cliente_socket = socket(server_info->ai_family, server_info->ai_socktype, server_info->ai_protocol);
+  int res = connect(cliente_socket, server_info->ai_addr, server_info->ai_addrlen);
 
   freeaddrinfo(server_info);
   if (res < 0) {
@@ -123,7 +141,7 @@ int connect_to_server(char * ip, char * port,t_log *logger) {
     exit(1);
   }
   log_info(logger, "Conectado!");
-  return server_socket;
+  return cliente_socket;
 }
 
 int crear_server(char * ip, char * port,t_log *logger) {
@@ -135,7 +153,7 @@ int crear_server(char * ip, char * port,t_log *logger) {
   int a=getaddrinfo(ip, port, &hints, &server_info);
   if(a<0){
 	  perror("Error");
-	  log_info(logger,"No se pudo usar la estructura");
+	  log_error(logger,"No se pudo usar la estructura");
 	  exit(1);
   }
   int server_socket = socket(server_info->ai_family, server_info->ai_socktype, server_info->ai_protocol);
@@ -149,6 +167,6 @@ int crear_server(char * ip, char * port,t_log *logger) {
   log_info(logger, "Bindeado!");
   int activado=1;
   setsockopt(server_socket,SOL_SOCKET,SO_REUSEADDR,&activado,sizeof(activado));
-  listen(server_socket,1000);
+  listen(server_socket,100);
   return server_socket;
 }
