@@ -47,6 +47,7 @@ void enviarMensaje(int socket_cliente,char *mensaje){
 	void *buffer=malloc(4+tamanio_Mens*sizeof(char));
 	memcpy(buffer,(void *)&tamanio_Mens,4);
 	memcpy(buffer+4,mensaje,tamanio_Mens*sizeof(char));
+	//come on come on turn the radio on its operativos
 	int r=send(socket_cliente,buffer,4+tamanio_Mens*sizeof(char),0);
 	if(r<0)
 		printf("error!");
